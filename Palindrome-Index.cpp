@@ -14,7 +14,25 @@ string rtrim(const string &);
 
 int palindromeIndex(string s)
 {
-    return 0;
+    int len = s.length();
+    int i = 0;
+    int j = 0;
+
+    for (i = 0, j = len -1; i < len; ++i, --j)
+    {
+        if (s[i] != s[j])
+            break;
+    }
+    
+    if (i > j) return -1;
+
+    for (int a = i+1, b = j; a < j && b > i+1; ++a, --b)
+    {
+        if (s[a] != s[b])
+            return j;
+    }
+
+    return i;
 }
 
 int main()
@@ -38,4 +56,26 @@ int main()
     fout.close();
 
     return 0;
+}
+
+string ltrim(const string &str) {
+    string s(str);
+
+    s.erase(
+        s.begin(),
+        find_if(s.begin(), s.end(), not1(ptr_fun<int, int>(isspace)))
+    );
+
+    return s;
+}
+
+string rtrim(const string &str) {
+    string s(str);
+
+    s.erase(
+        find_if(s.rbegin(), s.rend(), not1(ptr_fun<int, int>(isspace))).base(),
+        s.end()
+    );
+
+    return s;
 }
