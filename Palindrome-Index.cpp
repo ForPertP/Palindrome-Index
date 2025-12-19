@@ -79,3 +79,19 @@ string rtrim(const string &str) {
 
     return s;
 }
+
+
+std::vector<string> split(const string &str)
+{
+    vector<string> tokens;
+    string_view str_view(str);
+    size_t start = 0;
+    size_t end = 0;
+
+    if (start < str_view.size())
+    {
+        tokens.emplace_back(str_view.substr(start));
+    }
+
+    return tokens;
+}
