@@ -88,6 +88,15 @@ std::vector<string> split(const string &str)
     size_t start = 0;
     size_t end = 0;
 
+    while ((end = str_view.find(' ', start)) != string_view::npos)
+    {
+        if (end > start)
+        {
+            tokens.emplace_back(str_view.substr(start, end - start));
+        }
+        start = end + 1;
+    }
+
     if (start < str_view.size())
     {
         tokens.emplace_back(str_view.substr(start));
