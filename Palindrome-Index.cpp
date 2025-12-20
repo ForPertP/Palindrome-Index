@@ -12,29 +12,6 @@ string rtrim(const string &);
  * The function accepts STRING s as parameter.
  */
 
-int palindromeIndex(string s)
-{
-    int len = s.length();
-    int i = 0;
-    int j = 0;
-
-    for (i = 0, j = len -1; i < len; ++i, --j)
-    {
-        if (s[i] != s[j])
-            break;
-    }
-    
-    if (i > j) return -1;
-
-    for (int a = i+1, b = j; a < j && b > i+1; ++a, --b)
-    {
-        if (s[a] != s[b])
-            return j;
-    }
-
-    return i;
-}
-
 int main()
 {
     ofstream fout(getenv("OUTPUT_PATH"));
