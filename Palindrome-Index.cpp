@@ -22,6 +22,29 @@ bool isPalindrome(const string& s, int l, int r)
     return true;
 }
 
+
+int palindromeIndex(string s)
+{
+    int l = 0;
+    int r = s.size() - 1;
+
+    while (l < r && s[l] == s[r])
+    {
+        ++l;
+        --r;
+    }
+
+    if (l >= r)
+        return -1;
+
+    if (isPalindrome(s, l + 1, r))
+        return l;
+
+    if (isPalindrome(s, l, r - 1))
+        return r;
+
+    return -1;
+}
 int main()
 {
     ofstream fout(getenv("OUTPUT_PATH"));
