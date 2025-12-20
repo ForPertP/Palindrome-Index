@@ -12,6 +12,16 @@ string rtrim(const string &);
  * The function accepts STRING s as parameter.
  */
 
+bool isPalindrome(const string& s, int l, int r)
+{
+    while (l < r)
+    {
+        if (s[l++] != s[r--])
+            return false;
+    }
+    return true;
+}
+
 int main()
 {
     ofstream fout(getenv("OUTPUT_PATH"));
