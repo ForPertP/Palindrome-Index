@@ -45,6 +45,7 @@ int palindromeIndex(string s)
 
     return -1;
 }
+
 int main()
 {
     ofstream fout(getenv("OUTPUT_PATH"));
