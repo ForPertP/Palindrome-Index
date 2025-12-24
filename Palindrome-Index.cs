@@ -22,4 +22,14 @@ class Result
      * The function is expected to return an INTEGER.
      * The function accepts STRING s as parameter.
      */
+
+    private static bool IsPalindrome(string s, int l, int r)
+    {
+        while (l < r)
+        {
+            if (s[l++] != s[r--])
+                return false;
+        }
+        return true;
+    }    
 }
