@@ -32,4 +32,28 @@ class Result
         }
         return true;
     }    
+
+    public static int palindromeIndex(string s)
+    {
+        int l = 0;
+        int r = s.Length - 1;
+
+        while (l < r && s[l] == s[r])
+        {
+            l++;
+            r--;
+        }
+
+        if (l >= r)
+            return -1;
+
+        if (IsPalindrome(s, l + 1, r))
+            return l;
+
+        if (IsPalindrome(s, l, r - 1))
+            return r;
+
+        return -1;
+    }
+}    
 }
