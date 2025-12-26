@@ -12,7 +12,6 @@ using System.Text.RegularExpressions;
 using System.Text;
 using System;
 
-
 class Result
 {
 
@@ -31,7 +30,7 @@ class Result
                 return false;
         }
         return true;
-    }    
+    }
 
     public static int palindromeIndex(string s)
     {
@@ -55,5 +54,27 @@ class Result
 
         return -1;
     }
-}    
+}
+
+
+class Solution
+{
+    public static void Main(string[] args)
+    {
+        TextWriter textWriter = new StreamWriter(@System.Environment.GetEnvironmentVariable("OUTPUT_PATH"), true);
+
+        int q = Convert.ToInt32(Console.ReadLine().Trim());
+
+        for (int qItr = 0; qItr < q; qItr++)
+        {
+            string s = Console.ReadLine();
+
+            int result = Result.palindromeIndex(s);
+
+            textWriter.WriteLine(result);
+        }
+
+        textWriter.Flush();
+        textWriter.Close();
+    }
 }
