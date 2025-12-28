@@ -18,4 +18,15 @@ class Result {
      * The function is expected to return an INTEGER.
      * The function accepts STRING s as parameter.
      */
+
+    static boolean isPalindrome(String s, int l, int r)
+    {
+        while (l < r)
+        {
+            if (s.charAt(l++) != s.charAt(r--))
+                return false;
+        }
+        return true;
+    }
+
 }
